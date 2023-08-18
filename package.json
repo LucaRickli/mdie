@@ -9,6 +9,7 @@
   "private": false,
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
+  "types": "dist/main.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
