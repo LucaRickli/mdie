@@ -2,6 +2,8 @@
 
 Markdown inline editor.
 
+### [Demo](https://lucarickli.github.io/mdie/)
+
 ### Install
 
 ```sh
