@@ -30,10 +30,13 @@ export class InlineEditor {
     target,
     markdown,
     parse,
+    clickOutside = document,
   }: {
     target: HTMLElement | Element | Document | ShadowRoot;
     markdown: string;
     parse: (md: string) => string;
+    /** @default document */
+    clickOutside?: HTMLElement | Element | Document | ShadowRoot;
   }) {
     this.parse = parse;
     this.originalMarkdown = markdown;
@@ -44,7 +47,8 @@ export class InlineEditor {
 
     this.target = normalizeElement(target);
     this.target.innerHTML = this.parse(markdown);
-    this.target.addEventListener("click", () => {
+
+    clickOutside.addEventListener("click", () => {
       if (typeof this.activeItem === "number") this.saveChanges();
     });
 
@@ -116,9 +120,10 @@ export class InlineEditor {
 
   private enableEditor(el: HTMLElement, index = getIndex(el)) {
     el.removeEventListener("click", (ev: MouseEvent) => this.handleClick(ev));
-    el.innerText = this.lines[index]?.replace(/\\n/gm, "<br />") || "";
+    el.innerText = this.lines[index] || "";
     el.setAttribute("role", "textbox");
     el.contentEditable = "true";
+    el.style.whiteSpace = "pre-wrap";
     el.focus();
   }
 
@@ -126,7 +131,7 @@ export class InlineEditor {
     if (typeof index !== "number") return;
 
     const el = this.target.children.item(index) as HTMLElement;
-    const rawContent = el.innerText.replace(/<br ?\/?>/gm, "\n").trim();
+    const rawContent = el.innerText;
     const content = this.parse(rawContent);
 
     if (whitelineRegex.test(content)) {
