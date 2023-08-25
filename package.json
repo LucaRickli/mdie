@@ -14,10 +14,13 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build:pages": "tsc && vite build --config pages.vite.config.js",
-    "preview": "vite preview"
+    "typedoc": "typedoc src/main.ts",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "marked": "^7.0.3",
+    "prettier": "^3.0.2",
+    "typedoc": "^0.24.8",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.2"

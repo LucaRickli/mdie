@@ -32,29 +32,29 @@ declare class InlineEditor {
   constructor({
     target,
     markdown,
-    parse,
+    parse
   }: {
-    target: HTMLElement | Element | Document | ShadowRoot;
-    markdown: string;
-    parse: (md: string) => string;
-  });
+    target: HTMLElement | Element | Document | ShadowRoot
+    markdown: string
+    parse: (md: string) => string
+  })
 
-  get changesMade(): boolean;
+  get changesMade(): boolean
 
-  get markdown(): string;
+  get markdown(): string
 
-  cleanup(save?: boolean): void;
+  cleanup(save?: boolean): void
 }
 ```
 
 ### Example
 
 ```ts
-import { InlineEditor } from "@lucarickli/mdie";
+import { InlineEditor } from '@lucarickli/mdie'
 
 const editor = new InlineEditor({
   target: document.body,
   markdown: `# Hello world`,
-  parse: (md) => marked.parse(md), // 3rd party library
-});
+  parse: (md) => marked.parse(md) // 3rd party library
+})
 ```
