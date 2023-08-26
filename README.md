@@ -1,10 +1,14 @@
-# MDIE (WIP)
+# MDIE
 
 Markdown inline editor.
 
-### [Demo](https://lucarickli.github.io/mdie/)
+![workflow](https://img.shields.io/github/actions/workflow/status/lucarickli/mdie/pages.yml)
+![npm](https://img.shields.io/npm/v/%40lucarickli%2Fmdie)
+![size](https://img.shields.io/bundlejs/size/%40lucarickli%2Fmdie%400.0.3)
 
-### [Documentation](https://lucarickli.github.io/mdie/docs)
+
+- [Demo](https://lucarickli.github.io/mdie/)
+- [Documentation](https://lucarickli.github.io/mdie/docs)
 
 ### Install
 
